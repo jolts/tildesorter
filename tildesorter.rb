@@ -1,21 +1,45 @@
 #!/usr/bin/env ruby
+require 'fileutils'
 
 module Parser
-  attr_accessor :directory, :file
-
   class DirectoryParser
-    def self.directories(directory)
-      puts Dir.glob(directory+"/**")
+    def initialize(directory=ENV['HOME'])
+      @@directory = directory
+    end
+
+    def directories
+      puts Dir.glob("#{@@directory}/**")
     end
   end
 
   class FileParser
+    def initialize(*exts)
+      exts.each do |ext|
+        @@ext = ext
+      end
+    end
+
+    def files
+      FileUtils.cd(ENV['HOME'])
+      puts Dir.glob("**/*.#{@@ext}")
+    end
   end
 end
 
 module Sorter
+  class Sort
+  end
+
+  class PDFSort < Sort
+  end
 end
 
 
 #
-puts Parser::DirectoryParser.directories('/home/gig') if $0 == __FILE__
+dp = Parser::DirectoryParser.new
+dp.directories
+
+puts "\n---\n\n"
+
+fp = Parser::FileParser.new("pdf")
+fp.files
