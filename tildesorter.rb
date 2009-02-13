@@ -17,14 +17,14 @@ module Parser
 
   class FileParser < Parse
     def initialize(*exts)
-      exts.each do |ext|
-        @@ext = ext
-      end
+      @@exts = exts
     end
 
     def files
       FileUtils.cd(ENV['HOME'])
-      puts Dir.glob("**/*.#{@@ext}")
+      @@exts.each do |ext|
+        puts Dir.glob("**/*.#{ext}")
+      end
     end
   end
 end
@@ -44,5 +44,5 @@ dp.directories
 
 puts "\n---\n\n"
 
-fp = Parser::FileParser.new("pdf")
+fp = Parser::FileParser.new("pdf", "avi")
 fp.files
