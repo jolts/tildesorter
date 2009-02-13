@@ -1,12 +1,18 @@
 #!/usr/bin/env ruby
 
-module TildeSorter
+module Parser
   class DirectoryParser
     def self.directories(directory)
       @directory = directory
       puts Dir.glob(@directory+"/**")
     end
   end
+
+  class FileParser
+  end
 end
 
-puts TildeSorter::DirectoryParser.directories("/home/gig")
+module Sorter
+end
+
+puts Parser::DirectoryParser.directories("/home/gig")
