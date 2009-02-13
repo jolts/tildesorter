@@ -35,10 +35,6 @@ module TildeSorter
   end
 
   def self.run
-    # Defaults
-    Config.parse_dir = ENV['HOME']
-    Config.exts = "pdf"
-
     # Parse user options
     Opts.parse(ARGV)
 
