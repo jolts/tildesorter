@@ -2,7 +2,10 @@
 require 'fileutils'
 
 module Parser
-  class DirectoryParser
+  class Parse
+  end
+
+  class DirectoryParser < Parse
     def initialize(directory=ENV['HOME'])
       @@directory = directory
     end
@@ -12,7 +15,7 @@ module Parser
     end
   end
 
-  class FileParser
+  class FileParser < Parse
     def initialize(*exts)
       exts.each do |ext|
         @@ext = ext
