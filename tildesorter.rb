@@ -39,10 +39,12 @@ end
 
 
 #
+puts "Directories:\n\n"
 dp = Parser::DirectoryParser.new
 dp.directories
 
 puts "\n---\n\n"
 
+puts "Files:\n\n"
 fp = Parser::FileParser.new("pdf", "avi")
 fp.files
