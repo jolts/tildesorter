@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-require 'fileutils'
 require 'optparse'
 require 'optparse/time'
 require 'lib/sorter'

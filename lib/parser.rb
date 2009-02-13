@@ -1,3 +1,5 @@
+require 'fileutils'
+
 module TildeSorter
   module Parser
     class Parse
