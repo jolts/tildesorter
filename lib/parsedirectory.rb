@@ -5,7 +5,7 @@ module TildeSorter
     def self.directories(directory)
       @directory = directory
 
-      puts Dir[@directory+"/**"]
+      puts Dir.glob(@directory+"/**")
     end
   end
 end
