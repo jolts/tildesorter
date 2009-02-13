@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
 module Parser
+  attr_accessor :directory, :file
+
   class DirectoryParser
     def self.directories(directory)
       @directory = directory
