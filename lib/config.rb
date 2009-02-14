@@ -1,11 +1,11 @@
 require 'ostruct'
-
+ 
 class Array #:nodoc:
   def extract_options!
     last.is_a?(::Hash) ? pop : {}
   end
 end
- 
+
 class Module
   def mattr_reader(*syms)
     syms.each do |sym|
@@ -56,6 +56,6 @@ module TildeSorter
     @@parse_dir = ENV['HOME']
     @@exts = ['pdf']
 
-    class_variables.each do |v| mattr_accessor v[(2..-1)] end
+    class_variables.each { |v| mattr_accessor v[(2..-1)] }
   end
 end

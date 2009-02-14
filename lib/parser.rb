@@ -17,7 +17,7 @@ module TildeSorter
         Config.exts.each do |ext|
           puts Dir.glob("**/*.#{ext}")
         end
-        ## FileUtils.cd(File.dirname(__FILE__))
+        FileUtils.cd(File.split($0).first)
       end
     end
   end
