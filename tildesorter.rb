@@ -39,7 +39,10 @@ module TildeSorter
     Opts.parse(ARGV)
 
     # Run program
+    puts "DirectoryParser:"
     Parser::DirectoryParser.directories
+    puts "\n\n"
+    puts "FileParser:"
     Parser::FileParser.files
   end
 end

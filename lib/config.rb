@@ -38,11 +38,9 @@ class Module
           @@#{sym} = obj
         end
 
-        #{"
         def #{sym}=(obj)
           @@#{sym} = obj
         end
-        " unless options[:instance_writer] == false }
       EOS
     end
   end
