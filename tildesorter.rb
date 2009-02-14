@@ -40,10 +40,12 @@ module TildeSorter
 
     # Run program
     puts "DirectoryParser:"
-    Parser::DirectoryParser.directories
+    d = Thread.new { Parser::DirectoryParser.directories }
     puts "\n\n"
     puts "FileParser:"
-    Parser::FileParser.files
+    f = Thread.new { Parser::FileParser.files }
+    d.join
+    f.join
   end
 end
 

@@ -19,6 +19,7 @@ module TildeSorter
           puts Dir.glob("**/*.#{ext}")
         end
         FileUtils.cd(old_dir)
+        ## FileUtils.cd(File.path(__FILE__))
       end
     end
   end
