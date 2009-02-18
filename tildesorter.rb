@@ -39,11 +39,11 @@ module TildeSorter
     Opts.parse(ARGV)
 
     # Run program
-    puts "DirectoryParser:"
-    threads = Array.new
+    threads = []
+    puts 'DirectoryParser:'
     threads << Thread.new { Parser::DirectoryParser.directories }
     puts "\n"
-    puts "FileParser:"
+    puts 'FileParser:'
     threads << Thread.new { Parser::FileParser.files }
     threads.each { |t| t.join }
   end

@@ -5,7 +5,7 @@ module TildeSorter
     class Sort
     end
 
-    class ExtSorter < Sort
+    class ExtensionSorter < Sort
     end
   end
 end

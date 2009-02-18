@@ -1,13 +1,18 @@
+#!/usr/bin/env ruby
+
 require 'fileutils'
 
 module TildeSorter
   module Parser
     class Parse
+      def self.parse(item)
+        puts Dir[item]
+      end
     end
 
     class DirectoryParser < Parse
       def self.directories
-        puts Dir.glob("#{Config.parse_dir}/**")
+        parse "#{Config.parse_dir}/**"
       end
     end
 
@@ -15,7 +20,7 @@ module TildeSorter
       def self.files
         FileUtils.cd(ENV['HOME'])
         Config.exts.each do |ext|
-          puts Dir.glob("**/*.#{ext}")
+          parse "**/*.#{ext}"
         end
         FileUtils.cd(File.split($0).first)
       end
