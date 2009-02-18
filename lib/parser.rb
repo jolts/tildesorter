@@ -6,7 +6,7 @@ module TildeSorter
   module Parser
     class Parse
       def self.parse(item)
-        puts Dir[item]
+        Dir[item]
       end
     end
 
@@ -20,7 +20,7 @@ module TildeSorter
       def self.files
         FileUtils.cd(ENV['HOME'])
         Config.exts.each do |ext|
-          parse "**/*." + ext
+          return parse "**/*." + ext
         end
         FileUtils.cd(File.split($0).first)
       end

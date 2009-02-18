@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+
 require 'optparse'
 require 'optparse/time'
 require 'lib/sorter'
@@ -41,10 +42,10 @@ module TildeSorter
     # Run program
     threads = []
     puts 'DirectoryParser:'
-    threads << Thread.new { Parser::DirectoryParser.directories }
+    threads << Thread.new { puts Parser::DirectoryParser.directories }
     puts "\n"
     puts 'FileParser:'
-    threads << Thread.new { Parser::FileParser.files }
+    threads << Thread.new { puts Parser::FileParser.files }
     threads.each { |t| t.join }
   end
 end
